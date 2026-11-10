@@ -14,23 +14,23 @@ struct song songs[MAX];
 int songCount = 0;
 
 
-void enterData(void)
+void enterData(void)   //
 {
-    int number;
-    int i;
+    int number;     //stores how many songs the user wants
+    int i;          //used as counter in loop
 
-    printf("\nHow many songs would you like to enter? ");
-    scanf("%d", &number);
+    printf("\nHow many songs would you like to enter? ");    
+    scanf("%d", &number);     //answer to question is sotred in number
 
-    if (number > MAX - songCount)
+    if (number > MAX - songCount)    //checks if user si trying to enter more songs than array can hold 
     {
         number = MAX - songCount;
         printf("You can only enter %d more songs.\n", number);
     }
 
-    for (i = 0; i < number; i++)
+    for (i = 0; i < number; i++)    //repeats the code inside it for however many song the user wants to enter
     {
-        printf("\nEnter band or singer name: ");
+        printf("\nEnter band or singer name: ");   //reads up to 99 characters of the user input, selects current position in our song array
         scanf(" %99[^\n]", songs[songCount].band);
 
         printf("Enter song name: ");
@@ -42,7 +42,7 @@ void enterData(void)
         printf("Enter release year: ");
         scanf("%d", &songs[songCount].year);
 
-        songCount++;
+        songCount++;   //increases the number of songs stored by one after each song is entered
 
         printf("\nSong added successfully!\n");
     }
